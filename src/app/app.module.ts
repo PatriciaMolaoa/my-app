@@ -9,6 +9,9 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 const routes: Routes =
 [
 {
@@ -36,6 +39,8 @@ const routes: Routes =
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     FormsModule,
+    MatDatepickerModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [],

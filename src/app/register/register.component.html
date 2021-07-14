@@ -30,11 +30,28 @@
         Email is must be a valid email address
       </div>
     </div>
-    
+
+    <form appearance="fill">
+      <label>Gender</label>
+      <select>
+        <option>None</option>
+        <option value='male'>Male</option>
+        <option value='female'> Female</option>
+    </select>
+    </form>
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> -->
+
+
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" formControlName="password" name="password" class="form-control" placeholder="Enter Password">
+      <input type="password" formControlName="password" name="password" class="form-control" placeholder="Enter Password" {ngClass}="{'is-invalid' : submitted $$ f.password.error}">
     </div>
 
 
@@ -51,11 +68,13 @@
 
     <div class="form-group">
       <label for="Confrim_Password"> Confirm Password</label>
-      <input type="password" formControlName="confirmPassword" name="confirm Password" class="form-control" placeholder="Enter Confirm Password">
+      <input type="password" formControlName="confirmPassword" name="confirm Password" class="form-control" placeholder="Enter Confirm Password" {ngClass}="{'is-invalid' : submitted $$ f.confirmPassword.error}">
     </div>
 
+    <div ngIf=" submitted $$ f.password.errors" class = "invalid-feedback"  ></div>
+
     <div ngIf=" submitted $$ f.confirmPassword.errors" class = "invalid-feedback"  >
-      <div ngIf="f.password.errors.required">
+      <div ngIf="f.confirmPassword.errors.required">
         Confirm Password is required
       </div>
     </div>
